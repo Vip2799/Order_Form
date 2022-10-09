@@ -86,7 +86,7 @@ let orderDetailsOption = () => {
                     quantity: input4.value,
                     amount: input5.value
                 }
-                sum = Number(input5.value);
+                sum += Number(input5.value);
                 if (count == 1) {
                     orderName();
                 }
