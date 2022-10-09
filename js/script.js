@@ -78,8 +78,6 @@ let orderDetailsOption = () => {
         }
         addbtn.addEventListener("click", () => {
             if (validation()) {
-                console.log("executed")
-                console.log(validation())
 
                 let orderObj = {
                     categoryName: input1.value,
@@ -191,7 +189,6 @@ function validation() {
     } else { count2++; }
 
     if (count2 == 6) {
-        console.log(count2)
 
         return true;
     }
@@ -316,6 +313,9 @@ function submitForm() {
                 })
                 count =0;
                 input6.value = 0;
+                orderArr=[];
+document.querySelector("#orderId").value = orderId;
+
             }else{
                 alert("Add atleast one order")
             }
