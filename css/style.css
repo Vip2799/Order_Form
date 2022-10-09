@@ -1,1 +1,83 @@
 /* Write style code here*/
+#customerDetails input{
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+}
+
+#mainForm{
+    width: 800px;
+    border: 1px solid ;
+}
+#customerDetails span{
+    position: absolute;
+    left: 60%;
+    margin-top: -37px;
+    padding: 0px;
+    /* border: 2px solid; */
+    
+
+}
+
+
+
+header{
+    background-color: navy;
+    color: aqua;
+}
+
+h2{
+    font-weight: 400;
+}
+
+#address{
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+}
+#orderDetails{
+    margin-top: 20px;
+}
+#addSymbol{
+    display: inline-block;
+    width: 28px;
+    background-color: lightgray;    
+    border: 2px solid;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 50%;
+    font-size: 15px;
+    padding: 2px;
+}
+#orderRow div{
+    text-align: center;
+}
+#orderRow p{
+    font-style: italic;
+}
+#btn button{
+    border-radius: 20px;
+    font-size: 15px;
+    padding : 0px 8px 0px 8px ;
+    box-shadow: 2px 2px 1px 1px gray;
+}
+#orderNow input{
+    margin-top: 20px;
+    background-color: navy;
+    color: aqua;
+}
+#totalA{
+    background-color: rgb(205, 250, 205);
+    box-shadow: 2px 2px ;
+    width: 90px;
+    margin-left: 10px;
+    border: 1px solid rgb(205, 250, 205);
+}
+/* #orderDetails button{
+    margin-top: 40px;
+    float: right;
+}
+
+#orderDetails button :: after{
+    content : "";
+    clear : both;
+    display:block;    
+} */
