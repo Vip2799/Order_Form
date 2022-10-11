@@ -71,6 +71,9 @@ h2{
     margin-left: 10px;
     border: 1px solid rgb(205, 250, 205);
 }
+span{
+    font-size: 12px;
+}
 /* #orderDetails button{
     margin-top: 40px;
     float: right;

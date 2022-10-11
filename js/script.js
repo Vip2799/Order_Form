@@ -16,12 +16,14 @@ var priceCol = document.querySelector("#price");
 var input6;
 var input5;
 document.querySelector("#orderId").value = orderId;
+var customerDetails = document.querySelectorAll("#customerDetails input");
+
 
 let orderDetailsOption = () => {
     if (flag) {
         flag = false;
         count++;
-        let input1 = document.createElement("input");
+        var input1 = document.createElement("input");
         input1.type = "text";
         input1.placeholder = "Category Name";
         input1.style.width = "100%";
@@ -117,7 +119,7 @@ function validation() {
         let span = document.createElement("span");
         span.style.color = "red";
         span.style.width = "100%";
-        span.class = "orderSpan";
+        // span.class = "orderSpan";
         categoryNameCol.appendChild(span);
         span.innerHTML = "* can't be empty";
 
@@ -251,7 +253,6 @@ function displayOrderDetails(obj) {
 
 }
 function submitForm() {
-    let customerDetails = document.querySelectorAll("#customerDetails input");
     let address = document.querySelector("textarea");
     let customerName = customerDetails[1].value;
     let emailId = customerDetails[2].value;
@@ -288,8 +289,8 @@ function submitForm() {
             count++;
 
         }
-        if (count == 6  ) {
-            if(orderArr.length > 0){
+        if (count == 6) {
+            if (orderArr.length > 0) {
                 let submitOrderObj = {
                     "orderId": orderId,
                     "CustomerName": customerName,
@@ -301,25 +302,28 @@ function submitForm() {
                 }
                 orderId++;
                 submittedOrders.push(submitOrderObj);
+                showAlert()
                 console.log(submittedOrders)
                 document.querySelector("#submitForm").reset();
                 let ps = document.querySelectorAll("#orderRow p");
-                ps.forEach((el)=>{
+                ps.forEach((el) => {
                     el.remove();
                 })
                 let h6 = document.querySelectorAll("#orderRow h6");
-                h6.forEach((el)=>{
+                h6.forEach((el) => {
                     el.remove();
                 })
-                count =0;
+                count = 0;
+                sum = 0 ;
                 input6.value = 0;
-                orderArr=[];
-document.querySelector("#orderId").value = orderId;
+                orderArr = [];
+                document.querySelector("#orderId").value = orderId;
 
-            }else{
+
+            } else {
                 alert("Add atleast one order")
             }
-            
+
         }
 
     })
@@ -353,6 +357,10 @@ function calculateTotalAmt(obj) {
     console.log(sum);
     return sum;
 
+}
+
+function showAlert(){
+    alert(`Customer Name : ${customerDetails[1].value} \nEmail Id : ${customerDetails[2].value} \nContact No : ${customerDetails[3].value} \nTotal Amount To be pay : Rs ${sum}`);
 }
 
 
