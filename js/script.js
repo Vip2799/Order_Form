@@ -34,7 +34,7 @@ let orderDetailsOption = () => {
         input2.placeholder = "Item Name";
         input2.type = "text";
         input2.class = "tex";
-        input2.style.width = "100%"
+        input2.style.width = "100%";
         itemNameCol.appendChild(input2);
 
         let input3 = document.createElement("input");
@@ -115,44 +115,19 @@ function validation() {
             el.remove();
         })
     }
-    if (categoryNameCol.lastElementChild.value == null || categoryNameCol.lastElementChild.value == "") {
-        let span = document.createElement("span");
-        span.style.color = "red";
-        span.style.width = "100%";
-        // span.class = "orderSpan";
-        categoryNameCol.appendChild(span);
-        span.innerHTML = "* can't be empty";
-
-        categoryNameCol.addEventListener("input", () => {
-            span.remove();
-        })
-    } else { count2++; }
-
-    if (itemNameCol.lastElementChild.value == null || itemNameCol.lastElementChild.value == "") {
-        let span = document.createElement("span");
-        span.style.color = "red";
-        span.style.width = "100%";
-        span.class = "orderSpan";
-        itemNameCol.appendChild(span);
-        span.innerHTML = "* can't be empty";
-
-        itemNameCol.addEventListener("input", () => {
-            span.remove();
-        })
-    } else { count2++; }
-
-    if (priceCol.lastElementChild.value == null || priceCol.lastElementChild.value == 0) {
-        let span = document.createElement("span");
-        span.style.color = "red";
-        span.style.width = "100%";
-        span.class = "orderSpan";
-        priceCol.appendChild(span);
-        span.innerHTML = "* can't be empty";
-
-        priceCol.addEventListener("input", () => {
-            span.remove();
-        })
-    } else { count2++; }
+    let spans1 = document.querySelectorAll("#orderRow div");
+    for(let i = 0 ; i < spans1.length-1 ; i++){
+        if (spans1[i].lastElementChild.value == null || spans1[i].lastElementChild.value == "") {
+            let span = document.createElement("span");
+            span.style.color = "red";
+            span.style.width = "100%";
+            spans1[i].appendChild(span);
+            span.innerHTML = "* can't be empty";
+            spans1[i].addEventListener("input", () => {
+                span.remove();
+            })
+        } else { count2++; }
+    }
     if (priceCol.lastElementChild.value <= 0) {
         let span = document.createElement("span");
         span.style.color = "red";
@@ -165,18 +140,7 @@ function validation() {
             span.remove();
         })
     } else { count2++; }
-    if (quantityCol.lastElementChild.value == null || quantityCol.lastElementChild.value == 0) {
-        let span = document.createElement("span");
-        span.style.color = "red";
-        span.style.width = "100%";
-        span.class = "orderSpan";
-        quantityCol.appendChild(span);
-        span.innerHTML = "* can't be empty";
-
-        quantityCol.addEventListener("input", () => {
-            span.remove();
-        })
-    } else { count2++; }
+  
     if (quantityCol.lastElementChild.value <= 0) {
         let span = document.createElement("span");
         span.style.color = "red";
@@ -191,7 +155,6 @@ function validation() {
     } else { count2++; }
 
     if (count2 == 6) {
-
         return true;
     }
     else {
@@ -268,6 +231,7 @@ function submitForm() {
         })
         span.innerHTML = "* this field can not be empty";
     } else if (address.value.length < 10) {
+        let span = address.nextElementSibling;
         span.innerHTML = "Address should have atleast 10 characters";
     }
     else {
